@@ -1,2 +1,2 @@
-fastapi
-howlongtobeatpy
+fastapi==0.110.0
+howlongtobeatpy==1.0.5
