@@ -1,6 +1,8 @@
 from fastapi import FastAPI, __version__
 from howlongtobeatpy import HowLongToBeat
+import logging
 
+logger = logging.getLogger(__name__)
 app = FastAPI()
 
 @app.get("/api/")
@@ -10,7 +12,7 @@ async def dataGame(id: int = 0):
 
 @app.get("/api/name/{name}")
 async def dataName(name: str = ""):
-    print(name)
+    logger.info(name)
     result = await HowLongToBeat().async_search(name)
     if result is not None and len(result) > 0:
         best_element = max(result, key=lambda element: element.similarity)
