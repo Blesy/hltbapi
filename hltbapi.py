@@ -1,9 +1,10 @@
-from fastapi import FastAPI
+import asyncio
 from howlongtobeatpy import HowLongToBeat
 
-app = FastAPI()
 
-@app.get("/api/")
 async def dataGame(id: int = 0):
-    result = await HowLongToBeat().async_search_from_id(109434)
-    return result.__dict__
+    result = await HowLongToBeat().async_search_from_id(id)
+    print(result)
+    # print(result.__dict__)
+
+asyncio.run(dataGame(733110))
