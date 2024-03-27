@@ -10,6 +10,7 @@ async def dataGame(id: int = 0):
 
 @app.get("/api/name/{name}")
 async def dataName(name: str = ""):
+    print(name)
     result = await HowLongToBeat().async_search(name)
     if result is not None and len(result) > 0:
         best_element = max(result, key=lambda element: element.similarity)
