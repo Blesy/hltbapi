@@ -5,7 +5,7 @@ import logging
 logger = logging.getLogger(__name__)
 app = FastAPI()
 
-@app.get("/api/")
+@app.get("/api/id/{id}")
 async def dataGame(id: int = 0):
     result = await HowLongToBeat().async_search_from_id(id)
     return result.__dict__
