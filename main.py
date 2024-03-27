@@ -17,5 +17,5 @@ async def dataName(name: str = ""):
     if result is not None and len(result) > 0:
         best_element = max(result, key=lambda element: element.similarity)
     else:
-        return {"error": "No game found."}
+        return {"error": f"{name} not founded."}
     return best_element.__dict__
